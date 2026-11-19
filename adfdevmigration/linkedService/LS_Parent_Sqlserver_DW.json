@@ -2,6 +2,14 @@
 	"name": "LS_Parent_Sqlserver_DW",
 	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
+		"parameters": {
+			"schemaname": {
+				"type": "string"
+			},
+			"tablename": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
@@ -11,7 +19,7 @@
 			"trustServerCertificate": false,
 			"authenticationType": "Windows",
 			"userName": "LAPTOP-BHT672CB\\Vasanth",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2NjMzMzU4Ni1hZjAxLTQ5YzUtYWRjZC04YWYxYmMyNWEyMTAiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzNjdlM2RhNy04ZDQxLTQxMTUtOGI0NC01NWRlYjZlNjUxMGUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "SelfHostedIntegRuntime1",
