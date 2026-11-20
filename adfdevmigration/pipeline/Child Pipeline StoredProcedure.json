@@ -13,7 +13,6 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
 				"typeProperties": {
 					"storedProcedureName": "[dbo].[UpdateWatermark]",
 					"storedProcedureParameters": {
@@ -37,6 +36,20 @@
 				}
 			}
 		],
+		"parameters": {
+			"Tablename": {
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.TableName"
+			},
+			"TableSchema": {
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.TableSchema"
+			},
+			"WatermarkColumn": {
+				"type": "string",
+				"defaultValue": "@pipeline().parameters.WatermarkColumn"
+			}
+		},
 		"annotations": []
 	}
 }
