@@ -70,7 +70,24 @@
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
-								"enableStaging": false
+								"sink": {
+									"type": "ParquetSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "ParquetWriteSettings"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
 							},
 							"inputs": [
 								{
@@ -79,6 +96,15 @@
 									"parameters": {
 										"tablename": "pipeline().parameters.TableSchema)",
 										"schemaname": "pipeline().parameters.TableName"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DS_SqlTable_Parquet1",
+									"type": "DatasetReference",
+									"parameters": {
+										"Table_Name": "@pipeline().parameters.TableName"
 									}
 								}
 							]
@@ -99,6 +125,10 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
+								"pipeline": {
+									"referenceName": "Child Pipeline StoredProcedure",
+									"type": "PipelineReference"
+								},
 								"waitOnCompletion": true
 							}
 						}
