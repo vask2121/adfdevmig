@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_Parent_Sqlserver_DW'"
 		},
+		"LS_ADLS_SQL_PARQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_SQL_PARQUET'"
+		},
 		"LS_Parent_Sqlserver_DW_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "LAPTOP-BHT672CB\\SQLEXPRESS"
@@ -22,6 +26,10 @@
 		"LS_Parent_Sqlserver_DW_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "LAPTOP-BHT672CB\\Vasanth"
+		},
+		"LS_ADLS_SQL_PARQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sadevmigrationadls.dfs.core.windows.net"
 		},
 		"containerUri": {
 			"type": "string",
@@ -50,8 +58,14 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"LS_ADLS_SQL_PARQUET_accountKey": {
+						"value": "[parameters('LS_ADLS_SQL_PARQUET_accountKey')]"
+					},
 					"LS_Parent_Sqlserver_DW_password": {
 						"value": "[parameters('LS_Parent_Sqlserver_DW_password')]"
+					},
+					"LS_ADLS_SQL_PARQUET_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_SQL_PARQUET_properties_typeProperties_url')]"
 					},
 					"LS_Parent_Sqlserver_DW_properties_typeProperties_server": {
 						"value": "[parameters('LS_Parent_Sqlserver_DW_properties_typeProperties_server')]"
