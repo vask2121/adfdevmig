@@ -27,6 +27,43 @@
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "ForEachSQLTable",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "LKUP_SQLTABLE_WATRMRK_DW",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('LKUP_SQLTABLE_WATRMRK_DW').output.value",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "EXEC_SQL_INCREMENTAL",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "Child Pipeline Incremental",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					]
+				}
 			}
 		],
 		"annotations": [],
