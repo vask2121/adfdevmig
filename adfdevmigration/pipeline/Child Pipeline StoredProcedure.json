@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "SP-UPDT_WTRMRK",
+				"name": "SP_UPDT_WTRMRK",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [],
 				"policy": {
@@ -13,6 +13,7 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
+				"userProperties": [],
 				"typeProperties": {
 					"storedProcedureName": "[dbo].[UpdateWatermark]",
 					"storedProcedureParameters": {
