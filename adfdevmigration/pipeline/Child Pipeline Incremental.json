@@ -63,11 +63,11 @@
 							"userProperties": [
 								{
 									"name": "schemaname",
-									"value": "@pipeline().parameters.SchemaName"
+									"value": ""
 								},
 								{
 									"name": "tablename",
-									"value": "@pipeline().parameters.TableName"
+									"value": ""
 								}
 							],
 							"typeProperties": {
