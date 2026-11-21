@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "SP_UPDT_WTRMRK",
+				"name": "SP-UPDT_WTRMRK",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [],
 				"policy": {
