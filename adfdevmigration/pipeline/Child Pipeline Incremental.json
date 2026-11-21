@@ -62,16 +62,18 @@
 							},
 							"userProperties": [
 								{
-									"name": "schemaname"
+									"name": "schemaname",
+									"value": "@pipeline().parameters.SchemaName"
 								},
 								{
-									"name": "tablename"
+									"name": "tablename",
+									"value": "@pipeline().parameters.TableName"
 								}
 							],
 							"typeProperties": {
 								"source": {
 									"type": "SqlServerSource",
-									"sqlReaderQuery": "   @concat(\n    'SELECT * FROM ',\n    pipeline().parameters.TableSchema, '.', pipeline().parameters.TableName,\n    if(\n        equals(pipeline().parameters.LastLoadValue, null),\n        '', \n        concat(\n            ' WHERE ', pipeline().parameters.WatermarkColumn,\n            ' > ''', pipeline().parameters.LastLoadValue, ''''\n        )\n    )\n)",
+									"sqlReaderQuery": "@concat(\n    'SELECT * FROM ',\n    pipeline().parameters.TableSchema, '.', pipeline().parameters.TableName,\n    if(\n        equals(pipeline().parameters.LastLoadValue, null),\n        '', \n        concat(\n            ' WHERE ', pipeline().parameters.WatermarkColumn,\n            ' > ''', pipeline().parameters.LastLoadValue, ''''\n        )\n    )\n)",
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
